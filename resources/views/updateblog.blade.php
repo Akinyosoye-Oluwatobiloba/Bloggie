@@ -20,7 +20,7 @@
               <div  style="margin-bottom: 20px">
                 <label for="">Image:</label><br>
                 <input type="file" name="image"  id="">
-                {{-- <img src="/uploads/blogs/{{ $item->image }}" alt=""> --}}
+                <img src="/uploads/blogs/{{ $item->image }}" width="50px" height="50px" alt="">
               </div>
               {{-- description --}}
               <div  style="margin-bottom: 20px">

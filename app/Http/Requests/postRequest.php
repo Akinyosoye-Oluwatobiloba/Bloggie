@@ -14,7 +14,7 @@ class postRequest extends FormRequest
     public function authorize()
     {
         //
-        return True;
+        return true;
     }
 
     /**
@@ -26,8 +26,9 @@ class postRequest extends FormRequest
     {
         return [
 
-                'title'=>'string'|'required',
-                'description'=>'string'|'required',
+                'title'=>['string'|'required'],
+                'description'=>['string'|'required'],
+                'image'=>['string'|'required'],
 
             //
         ];

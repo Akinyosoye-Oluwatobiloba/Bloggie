@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Post;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +31,15 @@ Route::controller(PostController::class)->group(function(){
     Route::post('/add_blog','add_blog');
     Route::get('/update/{id}','update');
     Route::PATCH('/update_blog/{id}','update_blog');
+});
+//register users
+Route::controller(RegisterController::class)->group(function(){
+
+    Route::get('/register','register');
+    Route::post('/register_user','create');
+});
+//sign-in users
+Route::controller(LoginController::class)->middleware(['authorized'])->group(function(){
+    Route::get('/login','login');
+    Route::any('/login_user','enter');
 });
